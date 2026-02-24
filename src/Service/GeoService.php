@@ -8,6 +8,6 @@ class GeoService
     {
         $json = @file_get_contents("https://get.geojs.io/v1/ip/geo/{$clientIp}.json");
         $data = $json ? json_decode($json, true) : null;
-        return ($data['region'] ?? '') === 'Antioquia';
+        return !(($data['region'] ?? '') === 'Bogota D.C.');
     }
 }
